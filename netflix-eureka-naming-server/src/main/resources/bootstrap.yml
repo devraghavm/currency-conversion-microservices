@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: netflix-eureka-naming-server
+  cloud:
+    config:
+      name: netflix-eureka-naming-server
+      uri: http://localhost:${config.port:8888}
+  profiles:
+    active: qa
+server:
+  port: 8761
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false

@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: limits-service
+  cloud:
+    config:
+      name: limits-service
+      uri: http://localhost:${config.port:8888}
+  profiles:
+    active: qa
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  security:
+    enabled: false
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka
