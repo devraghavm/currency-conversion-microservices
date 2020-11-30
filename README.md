@@ -15,14 +15,35 @@ git clone --recurse-submodules -j8 https://github.com/devraghavm/currency-conver
     - https://www.rabbitmq.com/which-erlang.html
     - http://www.erlang.org/downloads
     - Video - https://www.youtube.com/watch?v=gKzKUmtOwR4
+    
+    (Note: For window, the RabbitMQ should be running as daemon process if you followed the above steps in links properly)
 
     #### Mac
     - https://www.rabbitmq.com/install-homebrew.html
+    
+    After installing rabbitmq using homebrew, issue the below command.
+    ```
+    /usr/local/sbin/rabbitmq-server
+    ```
+   
+    
 - Zipkin
+    
+    Quick Start Page
+    - https://zipkin.io/pages/quickstart
+
+    Downloading Zipkin Jar
+    - https://search.maven.org/remote_content?g=io.zipkin.java&a=zipkin-server&v=LATEST&c=exec
+
+    Command to run
     #### Windows
     ```
     SET RABBIT_URI=amqp://localhost 
-    java -jar zipkin-server-2.5.2-exec.jar
+    java -jar <zipkin-jar-name>.jar
+    ```
+    #### Mac
+    ```
+    RABBIT_URI=amqp://localhost java -jar <zipkin-jar-name>.jar 
     ```
 ## Setup Process:
 Open the project in any of your favorite IDE. (I prefer IntelliJ IDEA).
@@ -46,3 +67,30 @@ Open the project in any of your favorite IDE. (I prefer IntelliJ IDEA).
 5. currency-conversion-service
 6. netflix-zuul-api-gateway-server
 ```
+
+## Testing Functionality
+
+Make sure all appplications are started in the order specified and all applications are up and running. 
+(Note: All services are deployed with profile selected as 'qa'. All the configuration is loaded up with that profile.)
+1. Check if all centralized configuraion is applied by navigating to url.
+    - http://localhost:8888/**{service-name}**/**{environment}** (Example: http://localhost:8888/limits-service/dev)
+2. Check if all services are registered with the Eureka Naming Server.
+    - http://localhost:8761/
+3. Check if *limits-service* is working as expected.
+    - http://localhost:8080/limits
+    - http://localhost:8080/fault-tolerance-example (Hystrix Fault Tolerance Example)
+4. Check if *currency-exchange-service* is working as expected.
+    - http://localhost:7000/currency-exchange/from/EUR/to/INR
+5. Check if *currency-conversion-service* is working as expected.
+    - http://localhost:7100/currency-converter-feign/from/EUR/to/INR/quantity/10000
+6. Finally, check if requests through *zuul-api-proxy/gateway* are working as expected.
+    - http://localhost:8765/currency-exchange-service/currency-exchange/from/EUR/to/INR
+    - http://localhost:8765/currency-conversion-service/currency-converter-feign/from/EUR/to/INR/quantity/10000
+7. If you made it this far and were successfully able to test everything specified so far and get the appropriate responses, You can test distributed tracing by searching for each service in zipkin UI using the below URL.
+    - http://localhost:9411/zipkin (Note: Make sure RabbitMQ and Zipkin are started in the background)
+    
+This is a complete production like setup for all spring cloud applications.
+
+Hope this helps.
+
+Happy Learning!
