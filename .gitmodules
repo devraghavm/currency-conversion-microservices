@@ -1,1 +1,4 @@
 
+[submodule "git-localconfig-repo"]
+	path = git-localconfig-repo
+	url = https://github.com/devraghavm/git-localconfig-repo.git
