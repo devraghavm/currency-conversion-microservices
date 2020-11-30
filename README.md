@@ -94,3 +94,6 @@ This is a complete production like setup for all spring cloud applications.
 Hope this helps.
 
 Happy Learning!
+
+## References
+    - https://github.com/in28minutes/spring-microservices
