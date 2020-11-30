@@ -96,4 +96,4 @@ Hope this helps.
 Happy Learning!
 
 ## References
-    - https://github.com/in28minutes/spring-microservices
+- https://github.com/in28minutes/spring-microservices
