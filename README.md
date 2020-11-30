@@ -7,7 +7,7 @@ git clone --recurse-submodules -j8 https://github.com/devraghavm/currency-conver
 ```
 
 ## Prerequisites
-- OpenJDK 15
+- [**OpenJDK 15**](http://jdk.java.net/15/)
 - Java based IDE (IntelliJ IDEA or Eclipse)
 - RabbitMQ
     #### Windows
