@@ -3,7 +3,7 @@ A complete spring cloud example using Centralized Configuration, Naming Server, 
 
 Run the below command to clone all the code to your local:
 ```
-git clone --recurse-submodules -j8 https://github.com/devraghavm/currency-conversion-microservices.git
+git clone --recurse-submodules --remote-submodules -j8 https://github.com/devraghavm/currency-conversion-microservices.git
 ```
 
 ## Prerequisites
