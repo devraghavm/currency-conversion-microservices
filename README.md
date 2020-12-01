@@ -80,9 +80,9 @@ Make sure all appplications are started in the order specified and all applicati
     - http://localhost:8080/limits
     - http://localhost:8080/fault-tolerance-example (Hystrix Fault Tolerance Example)
 4. Check if *currency-exchange-service* is working as expected.
-    - http://localhost:7000/currency-exchange/from/EUR/to/INR
+    - http://localhost:8000/currency-exchange/from/EUR/to/INR
 5. Check if *currency-conversion-service* is working as expected.
-    - http://localhost:7100/currency-converter-feign/from/EUR/to/INR/quantity/10000
+    - http://localhost:8100/currency-converter-feign/from/EUR/to/INR/quantity/10000
 6. Finally, check if requests through *zuul-api-proxy/gateway* are working as expected.
     - http://localhost:8765/currency-exchange-service/currency-exchange/from/EUR/to/INR
     - http://localhost:8765/currency-conversion-service/currency-converter-feign/from/EUR/to/INR/quantity/10000

@@ -1,12 +1,12 @@
 spring:
   application:
     name: currency-conversion-service
-  cloud:
-    config:
-      name: currency-conversion-service
-      uri: http://localhost:${config.port:8888}
-  profiles:
-    active: qa
+#  cloud:
+#    config:
+#      name: currency-conversion-service
+#      uri: http://localhost:${config.port:8888}
+#  profiles:
+#    active: qa
 server:
   port: 8100
 eureka:

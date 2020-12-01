@@ -1,12 +1,12 @@
 spring:
   application:
     name: netflix-zuul-api-gateway-server
-  cloud:
-    config:
-      name: netflix-zuul-api-gateway-server
-      uri: http://localhost:${config.port:8888}
-  profiles:
-    active: qa
+#  cloud:
+#    config:
+#      name: netflix-zuul-api-gateway-server
+#      uri: http://localhost:${config.port:8888}
+#  profiles:
+#    active: qa
 server:
   port: 8765
 eureka:
